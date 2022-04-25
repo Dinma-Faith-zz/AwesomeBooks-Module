@@ -1,6 +1,5 @@
-import { BookClass } from './modules/bookclass.js';
+import { BookClass, pastebooks } from './modules/bookclass.js';
 import { currentDate } from './modules/date.js';
-import { pastebooks } from './modules/bookclass.js';
 
 const bookList = document.querySelector('.books');
 const form = document.getElementById('added-book');
@@ -33,7 +32,6 @@ contactMenu.addEventListener('click', () => {
 
 let books = [];
 
-
 const storeBooks = JSON.parse(localStorage.getItem('books'));
 
 if (storeBooks) {
@@ -49,11 +47,11 @@ form.addEventListener('submit', (e) => {
   if (!title || !author) {
     return;
   }
-  let newBook = new BookClass(title, author);
+  const newBook = new BookClass(title, author);
   BookClass.addBook(newBook);
   BookClass.showBooks();
   titleInput.value = '';
   authorInput.value = '';
 });
 
-window.onload = currentDate()
+window.onload = currentDate();
