@@ -56,3 +56,5 @@ form.addEventListener('submit', (e) => {
   titleInput.value = '';
   authorInput.value = '';
 });
+
+window.onload = currentDate()

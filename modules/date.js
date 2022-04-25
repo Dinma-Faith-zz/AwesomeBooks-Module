@@ -1,12 +1,8 @@
-const date = document.querySelector('.date');
+import { DateTime } from './luxon.js';
 
-const currentDate = () => {
-    const newDate = new Date();
-    date.innerHTML = `${newDate.toDateString()}, ${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}pm `;
-    setTimeout(currentDate, 1000);
-  };
-  
-  window.onload = currentDate();
+  const date = document.querySelector('.date');
+export const currentDate = () => {
+  date.innerHTML = DateTime.now().toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+  setTimeout(currentDate, 1000);
+};
 
-  export { currentDate };
-  
