@@ -1,4 +1,4 @@
-const bookList = document.querySelector('.books');
+const bookList = document.querySelector(".books");
 export let pastebooks = [];
 
 export class BookClass {
@@ -8,14 +8,12 @@ export class BookClass {
     this.id = id;
   }
 
-
   bookCode() {
     return `<article class="added-book"><p class="title">${this.title}</p>
                  <p>${this.author}</p>
                 <button data-id=${this.id} class="remove">Remove</button>
                 </article><hr>`;
   }
-
 
   static addBook(book) {
     let id = 1;
@@ -24,23 +22,23 @@ export class BookClass {
     }
     book.id = id;
     pastebooks.push(book);
-    localStorage.setItem('pastebooks', JSON.stringify(pastebooks));
+    localStorage.setItem("pastebooks", JSON.stringify(pastebooks));
   }
 
   static remove(id) {
     pastebooks = pastebooks.filter((b) => b.id !== Number(id));
-    localStorage.setItem('pastebooks', JSON.stringify(pastebooks));
+    localStorage.setItem("pastebooks", JSON.stringify(pastebooks));
   }
 
   static showBooks() {
-    const booksCode = pastebooks
-      .map((book) => new BookClass(book.title, book.author, book.id)
-        .bookCode());
-    bookList.innerHTML = booksCode.join('');
-    const deleteBtn = document.querySelectorAll('.remove');
+    const booksCode = pastebooks.map((book) =>
+      new BookClass(book.title, book.author, book.id).bookCode()
+    );
+    bookList.innerHTML = booksCode.join("");
+    const deleteBtn = document.querySelectorAll(".remove");
     deleteBtn.forEach((el) => {
-      el.addEventListener('click', (e) => {
-        const id = e.target.getAttribute('data-id');
+      el.addEventListener("click", (e) => {
+        const id = e.target.getAttribute("data-id");
         BookClass.remove(id);
         BookClass.showBooks();
       });

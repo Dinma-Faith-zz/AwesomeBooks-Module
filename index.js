@@ -12,7 +12,6 @@ const contactMenu = document.querySelector('#contact-menu');
 const formSec = document.querySelector('#add-new');
 const listSec = document.querySelector('#list');
 const contSec = document.querySelector('#contact');
-// const date = document.querySelector('.date');
 
 listMenu.addEventListener('click', () => {
   formSec.style.display = 'none';
